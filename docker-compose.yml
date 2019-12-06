@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx 
+    container_name: nginx
+    ports:
+      - "1337:80"
+    links:
+      - comments
+      - members
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  comments:
+    build:
+      context: ./comments
+      dockerfile: Dockerfile
+    image: comments
+    container_name: comments
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_CONNECTION_STRING=$MONGO_CONNECTION_STRING
+      - GITHUB_TOKEN=$GITHUB_TOKEN
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./comments:/usr/src/app
+      - /usr/src/app/node_modules
+
+  members:
+    build:
+      context: ./members
+      dockerfile: Dockerfile
+    image: members
+    container_name: members
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_CONNECTION_STRING=$MONGO_CONNECTION_STRING
+      - GITHUB_TOKEN=$GITHUB_TOKEN
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./members:/usr/src/app
+      - /usr/src/app/node_modules
+
+  gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    image: gateway
+    container_name: gateway
+    restart: unless-stopped
+    env_file: .env
+    links:
+      - comments
+      - members
+    environment:
+      - PORT=8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api-gateway:/usr/src/app
+      - /usr/src/app/node_modules

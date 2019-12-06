@@ -1,0 +1,40 @@
+{
+  "name": "express-es6-sample",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run prod",
+    "start-win": "npm run prod-win",
+    "dev": "NODE_ENV=development npm run watch ./src/bin/www",
+    "dev-win": "set NODE_ENV=development && npm run watch ./src/bin/www",
+    "prod": "npm run build && NODE_ENV=production node ./dist/bin/www",
+    "prod-win": "npm run build && set NODE_ENV=production && node ./dist/bin/www",
+    "build": "npm run clean && babel ./src --config-file ./.babelrc --out-dir dist",
+    "clean": "rimraf dist",
+    "watch": "nodemon --config ./nodemon.json --"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@octokit/graphql": "^4.3.1",
+    "axios": "^0.19.0",
+    "bigint-hash": "^0.2.2",
+    "cookie-parser": "^1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.0",
+    "mongoose": "^5.7.13",
+    "morgan": "~1.9.0",
+    "rimraf": "^2.6.3",
+    "swagger-ui-express": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/runtime": "^7.7.4",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.2",
+    "nodemon": "^1.19.0"
+  }
+}

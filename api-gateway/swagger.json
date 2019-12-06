@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Api documentation for Xendit Test",
+        "description": "Api documentation for Xendit Test",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "204.48.24.199:1337",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Comments",
+            "description": "API for comments model in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/orgs/{organisationName}/comments": {
+            "post": {
+                "tags": [
+                    "Comments"
+                ],
+                "description": "Create new comments in the system by organisation name",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Comments objects that we want to create",
+                        "required" : true,
+                        "schema": {
+                            "$ref": "#/definitions/Comments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New comments is created",
+                        "schema": {
+                            "$ref": "#/definitions/GetComments"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "name": "organisationName",
+                        "in": "path",
+                        "required": true,
+                        "description": "Organisation name to get list of comments",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Get all comments in system by organisation name",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetComments"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "organisationName",
+                        "in": "path",
+                        "required": true,
+                        "description": "Organisation name to get list of comments",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Delete all comments in system by organisation name",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetComments"
+                        }
+                    }
+                }
+            }
+        },
+        "/org/{organisationName}/members": {
+            "parameters": [
+                {
+                    "name": "organisationName",
+                    "in": "path",
+                    "required": true,
+                    "description": "Organisation name to get list of members",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Members"
+                ],
+                "summary": "Get list of members of an organisation in the system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GetMembers"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Comments": {
+            "required": [
+                "comment"
+            ],
+            "properties": {
+                "comments": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetComments": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "comments": {
+                    "type": "string"
+                },
+                "organisationName": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetMembers": {
+            "properties": {
+                "login": {
+                    "type": "string"
+                },
+                "avatar_url": {
+                    "type": "string"
+                },
+                "totalFollowers": {
+                    "type": "string"
+                },
+                "totalFollowing":{
+                    "type" :"integer"
+                }
+            }
+        }
+    }
+}
