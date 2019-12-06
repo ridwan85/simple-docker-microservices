@@ -19,12 +19,9 @@ describe("comments", () => {
       });
   });
 
-  it("Create comments in an organisation", done => {
+  it("Delete all comments in an organisation", done => {
     request
-      .post("orgs/xendit/comments")
-      .send({
-        comments: "Unit test to create comments in an organisation"
-      })
+      .delete("orgs/xendit/comments")
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
@@ -33,9 +30,12 @@ describe("comments", () => {
       });
   });
 
-  it("Delete all comments in an organisation", done => {
+  it("Create comments in an organisation", done => {
     request
-      .delete("orgs/xendit/comments")
+      .post("orgs/xendit/comments")
+      .send({
+        comments: "Unit test to create comments in an organisation"
+      })
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
