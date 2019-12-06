@@ -5,7 +5,7 @@ Base endpoint : <http://204.48.24.199:1337/api/v1/>
 For example to get members by organisation  
 <http://204.48.24.199:1337/api/v1/orgs/google/members>  
 
-The docs is at
+The docs is at  
 <http://204.48.24.199:1337/api/v1/api-docs/>  
 
 ----------------------------------------------------------------------------------------
