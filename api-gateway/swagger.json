@@ -13,8 +13,7 @@
     "basePath": "/api/v1",
     "tags": [
         {
-            "name": "Comments",
-            "description": "API for comments model in the system"
+            "name": "Comments"
         }
     ],
     "schemes": [
