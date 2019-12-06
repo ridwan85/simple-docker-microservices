@@ -108,7 +108,7 @@
                 }
             }
         },
-        "/org/{organisationName}/members": {
+        "/orgs/{organisationName}/members": {
             "parameters": [
                 {
                     "name": "organisationName",
