@@ -34,5 +34,5 @@ chmod u+x run.sh
 ```
 The api docs is available at ```ENDPOINT/api-docs```   
 For example is if your API_PORT is 1337    
-Api docs is available at ```http://localhost:1337/api/v1/api-docs```   
+Api docs is then available at ```http://localhost:1337/api/v1/api-docs```   
 
