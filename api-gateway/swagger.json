@@ -49,6 +49,13 @@
                         "schema": {
                             "$ref": "#/definitions/Comments"
                         }
+                    },
+                    {
+                        "name": "organisationName",
+                        "in": "path",
+                        "required": true,
+                        "description": "Organisation name to create comments",
+                        "type": "string"
                     }
                 ],
                 "responses": {
