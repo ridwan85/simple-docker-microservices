@@ -61,11 +61,19 @@ router.get("/:orgname/comments", (req, res, next) => {
       });
     });
   } catch (err) {
-    return res.json({
-      statusCode: 500,
-      message: err.errors[0]["message"],
-      type: err.errors[0]["type"]
-    });
+    if (err.errors) {
+      return res.json({
+        statusCode: 500,
+        message: err.errors[0]["message"],
+        type: err.errors[0]["type"]
+      });
+    } else {
+      return res.json({
+        statusCode: 401,
+        message: "Token redacted",
+        type: "UNAUTHORISED ACCESS"
+      });
+    }
   }
 });
 
@@ -104,12 +112,19 @@ router.post("/:orgname/comments", (req, res, next) => {
         });
       }
     } catch (err) {
-      console.log(err);
-      return res.json({
-        statusCode: 500,
-        message: err.errors[0]["message"],
-        type: err.errors[0]["type"]
-      });
+      if (err.errors) {
+        return res.json({
+          statusCode: 500,
+          message: err.errors[0]["message"],
+          type: err.errors[0]["type"]
+        });
+      } else {
+        return res.json({
+          statusCode: 401,
+          message: "Token redacted",
+          type: "UNAUTHORISED ACCESS"
+        });
+      }
     }
   };
 
@@ -134,11 +149,19 @@ router.delete("/:orgname/comments", (req, res, next) => {
       });
     });
   } catch (err) {
-    return res.json({
-      statusCode: 500,
-      message: err.errors[0]["message"],
-      type: err.errors[0]["type"]
-    });
+    if (err.errors) {
+      return res.json({
+        statusCode: 500,
+        message: err.errors[0]["message"],
+        type: err.errors[0]["type"]
+      });
+    } else {
+      return res.json({
+        statusCode: 401,
+        message: "Token redacted",
+        type: "UNAUTHORISED ACCESS"
+      });
+    }
   }
 });
 
