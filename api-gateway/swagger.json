@@ -31,7 +31,7 @@
                 "tags": [
                     "Comments"
                 ],
-                "description": "Create new comments in the system by organisation name",
+                "summary": "Create new comments in the system by organisation name",
                 "consumes": [
                     "application/json",
                     "application/xml"
