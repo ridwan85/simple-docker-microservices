@@ -14,5 +14,11 @@ app.use(cookieParser());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/orgs", indexRouter);
+app.use("/", (req, res, next) => {
+  return res.send({
+    health: 100,
+    message: "API IS WORKING FINE"
+  });
+});
 
 export default app;
