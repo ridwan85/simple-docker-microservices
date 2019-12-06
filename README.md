@@ -1,5 +1,14 @@
 # SIMPLE express microservices with api gateway
+Live demo is at   
+Base endpoint : <http://204.48.24.199:1337/api/v1/>  
 
+For example to get members by organisation  
+<http://204.48.24.199:1337/api/v1/orgs/google/members>  
+
+The docs is at
+<http://204.48.24.199:1337/api/v1/api-docs/>  
+
+----------------------------------------------------------------------------------------
 This is an application made with **nodejs**,**express**,**docker** with an es6 syntax .
 Testing is done using **mocha/chai**.
 This application is made for the purpose of answering a **test**.
