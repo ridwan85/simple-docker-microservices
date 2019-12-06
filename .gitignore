@@ -4,3 +4,5 @@ package-lock.json
 .env
 
 **/dist
+
+**/package-lock.json
