@@ -15,7 +15,7 @@ This application is made for the purpose of answering a **test**.
 
 
 _________________________________________________________________________________________
-*PREQUISITE*
+*PREQUISITE*  
 Please make sure **DOCKER** and **NODEJS** is **INSTALLED** before running the script
 
 ------------------------------------------------------------------------------------------
