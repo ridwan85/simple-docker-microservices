@@ -2,7 +2,8 @@
 require("dotenv").config();
 const chai = require("chai");
 const port = process.env.API_PORT;
-const url = `http://localhost:${port}/api/v1/`;
+const host = process.env.HOST;
+const url = `http://${host}:${port}/api/v1/`;
 const request = require("supertest")(url);
 const should = require("chai").should();
 
