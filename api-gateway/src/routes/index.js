@@ -1,14 +1,12 @@
 import express from "express";
 var router = express.Router();
-var membersRouter = require("./membersService");
-var commentsRouter = require("./commentsService");
+var notificationsRouter = require("./notificationsService");
 
 router.use((req, res, next) => {
   console.log("Called: ", req.path);
   next();
 });
 
-router.use(membersRouter);
-router.use(commentsRouter);
+router.use(notificationsRouter);
 
 module.exports = router;

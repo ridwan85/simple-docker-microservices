@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use("/orgs", indexRouter);
+app.use("/notifications", indexRouter);
 app.use("/", (req, res, next) => {
   return res.send({
     health: 100,

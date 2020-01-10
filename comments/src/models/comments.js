@@ -1,6 +1,4 @@
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
-import crypto from "crypto";
+import mongoose, { Schema } from 'mongoose';
 
 const CommentsSchema = new Schema({
   comments: String,
@@ -10,4 +8,4 @@ const CommentsSchema = new Schema({
   updatedAt: { type: Date, default: Date.now() }
 });
 
-mongoose.model("Comments", CommentsSchema);
+mongoose.model('Comments', CommentsSchema);
